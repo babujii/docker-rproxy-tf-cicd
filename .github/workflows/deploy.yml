@@ -17,11 +17,11 @@ jobs:
 
       - name: Build and Push Site 1
         run: |
-          docker build --target site1 -t babujii/site1:latest .
-          docker push docker.io/babujii/site1:latest
+          docker build --target site1 -t babujii/site11:latest .
+          docker push babujii/site11:latest
 
       - name: Build and Push Site 2
         run: |
-          docker build --target site2 -t babujii/site2:latest .
-          docker push docker.io/babujii/site2:latest
+          docker build --target site2 -t babujii/site22:latest .
+          docker push babujii/site2:latest
 
