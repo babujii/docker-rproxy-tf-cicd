@@ -23,5 +23,5 @@ jobs:
       - name: Build and Push Site 2
         run: |
           docker build --target site2 -t babujii/site22:latest .
-          docker push babujii/site2:latest
+          docker push babujii/site22:latest
 
