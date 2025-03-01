@@ -1,0 +1,27 @@
+name: Deploy to Docker Hub
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Build and Push Site 1
+        run: |
+          docker build --target site1 -t babujii/site1:latest .
+          docker push babujii/site1:latest
+
+      - name: Build and Push Site 2
+        run: |
+          docker build --target site2 -t babujii/site2:latest .
+          docker push babujii/site2:latest
+

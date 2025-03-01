@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Date & Hostname</title></head>
+<body>
+    <h1>Date: <span id="date"></span></h1>
+    <h1>Hostname: <span id="hostname"></span></h1>
+
+    <script>
+        document.getElementById("date").textContent = new Date().toLocaleString();
+        fetch('/hostname').then(response => response.text()).then(data => {
+            document.getElementById("hostname").textContent = data;
+        });
+    </script>
+</body>
+</html>
+
